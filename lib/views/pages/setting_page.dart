@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo001/utils/toast_util.dart';
 
+import 'expanded_flexible_test.dart';
+
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key, required this.title});
 
@@ -46,6 +48,17 @@ class _ProfilePageState extends State<SettingPage> {
                     dropdownValue = value;
                   });
                 },
+              ),
+              Divider(
+                color: Colors.teal,
+                thickness: 5,
+                endIndent: 200,
+                indent: 20,
+                radius: BorderRadiusGeometry.circular(20),
+              ),
+              Container(
+                height: 50,
+                child: VerticalDivider(thickness: 5, color: Colors.red),
               ),
               TextField(
                 controller: usernameController,
@@ -133,7 +146,25 @@ class _ProfilePageState extends State<SettingPage> {
                   showDialog(
                     context: context,
                     builder: (context) {
-                      return AlertDialog(title: Text('Alert'));
+                      return AlertDialog(
+                        title: Text('Alert'),
+                        content: Text('abc'),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                              print('clik');
+                            },
+                            child: Text('cancel'),
+                          ),
+                          FilledButton(
+                            onPressed: () {
+                              print('clik');
+                            },
+                            child: Text('ok'),
+                          ),
+                        ],
+                      );
                     },
                   );
                 },
@@ -169,7 +200,19 @@ class _ProfilePageState extends State<SettingPage> {
                 ),
                 child: Text('SnackBar'),
               ),
-              FilledButton(onPressed: () {}, child: Text('Filled Button')),
+              FilledButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return ExpandedFlexibleTest();
+                      },
+                    ),
+                  );
+                },
+                child: Text('Show Expansible and Flexible'),
+              ),
               TextButton(onPressed: () {}, child: Text('Text Button')),
               OutlinedButton(onPressed: () {}, child: Text('outlined button')),
               CloseButton(),

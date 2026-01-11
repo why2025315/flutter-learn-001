@@ -46,7 +46,7 @@ void showTopToast(
       ),
     ),
   );
-  Overlay.of(context)!.insert(_overlayEntry!);
+  Overlay.of(context).insert(_overlayEntry!);
   Future.delayed(duration, () {
     if (_overlayEntry != null) {
       _overlayEntry!.remove();

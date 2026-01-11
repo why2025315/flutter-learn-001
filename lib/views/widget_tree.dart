@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo001/data/notifiers.dart';
 import 'package:flutter_demo001/views/pages/setting_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import '../data/constants.dart';
 import '../widgets/navbar_widget.dart';
 import 'pages/home_page.dart';
 import 'pages/profile_page.dart';
@@ -19,8 +21,14 @@ class WidgetTree extends StatelessWidget {
         // automaticallyImplyLeading: false,
         actions: [
           IconButton(
-            onPressed: () {
+            onPressed: () async {
               brightnessNotifier.value = !brightnessNotifier.value;
+              final prefs = await SharedPreferences.getInstance();
+              print('set themeMode ${brightnessNotifier.value}');
+              await prefs.setBool(
+                KConstants.themeModeKey,
+                brightnessNotifier.value,
+              );
             },
             icon: ValueListenableBuilder(
               valueListenable: brightnessNotifier,
@@ -53,6 +61,5 @@ class WidgetTree extends StatelessWidget {
       ),
       bottomNavigationBar: NavbarWidget(),
     );
-    ;
   }
 }
