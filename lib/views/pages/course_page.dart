@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
 
-import '../../data/classes/activity_class.dart';
+import '../../data/classes/activity.dart';
 import '../../widgets/hero_widget.dart';
 
 class CoursePage extends StatefulWidget {

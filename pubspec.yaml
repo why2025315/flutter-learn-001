@@ -39,6 +39,9 @@ dependencies:
   flutter_launcher_icons: ^0.14.4
   flutter_native_splash: ^2.4.7
   http: ^1.6.0
+  # a package containing annotations for freezed.
+  freezed_annotation: ^3.1.0
+  json_annotation: ^4.9.0
 
 dev_dependencies:
   flutter_test:
@@ -50,6 +53,11 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  # the tool to run code-generators
+  build_runner: ^2.10.4
+  # the code generator
+  freezed: ^3.2.4
+  json_serializable: ^6.5.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
